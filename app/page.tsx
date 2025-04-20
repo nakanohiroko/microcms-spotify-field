@@ -23,13 +23,12 @@ type SimplifiedTrack = {
 };
 
 
-const origin =
-  process.env.NEXT_APP_MICROCMS_ORIGIN;
+const origin = process.env.NEXT_PUBLIC_MICROCMS_ORIGIN;
 
 export default function SpotifyTrackSelector() {
-  const { data, sendMessage } = useFieldExtension<SpotifyTrack | undefined>(undefined, {
+  const { data, sendMessage } = useFieldExtension<SpotifyTrack>("" as unknown as SpotifyTrack, {
     origin: origin,
-    height: 640,
+    height: 820,
   });
 
   const [query, setQuery] = useState("");
