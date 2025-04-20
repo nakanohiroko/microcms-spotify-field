@@ -1,0 +1,18 @@
+.wrapper {
+  margin-top: var(--spacing-medium);
+  padding: var(--spacing-small);
+  background-color: var(--color-bg-purple-light);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius-base);
+}
+
+.label {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-small);
+  margin-bottom: var(--spacing-2x-small);
+  color: var(--color-text-main);
+}
+
+.buttonWrapper {
+  margin-top: var(--spacing-small);
+}

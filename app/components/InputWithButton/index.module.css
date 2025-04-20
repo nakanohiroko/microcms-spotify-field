@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+  gap: var(--spacing-x-small);
+  align-items: flex-end;
+}
+.inputWrapper {
+  flex: 1;
+}
