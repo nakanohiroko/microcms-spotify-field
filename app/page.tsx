@@ -13,17 +13,27 @@ type SpotifyTrack = {
   embedHtml: string;
 };
 
+type SimplifiedTrack = {
+  id: string;
+  name: string;
+  artists: { name: string }[];
+  album: {
+    images: { url: string }[];
+  };
+};
+
+
 const origin =
   process.env.NEXT_APP_MICROCMS_ORIGIN;
 
 export default function SpotifyTrackSelector() {
-  const { data, sendMessage } = useFieldExtension<SpotifyTrack>("" as any, {
+  const { data, sendMessage } = useFieldExtension<SpotifyTrack | undefined>(undefined, {
     origin: origin,
     height: 640,
   });
 
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<any[]>([]);
+  const [results, setResults] = useState<SimplifiedTrack[]>([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -43,6 +53,7 @@ export default function SpotifyTrackSelector() {
       const json = await res.json();
       setResults(json.tracks.items);
     } catch (err) {
+      console.log(err);
       setError("検索に失敗しました");
     }
   };
